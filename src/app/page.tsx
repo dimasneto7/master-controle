@@ -7,6 +7,7 @@ export default function Home() {
       <h1 className="font-bold text-2xl mb-8 text-white md:text-3xl pt-4">
         Seja Master no Atendimento dos seus Clientes
       </h1>
+
       <Image
         src={heroImg}
         alt="Imagem hero do dev controle"
