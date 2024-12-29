@@ -20,8 +20,6 @@ export default async function Customer() {
     },
   })
 
-  console.log(customers)
-
   return (
     <div className="bg-zinc-800 min-h-[calc(100vh-80px)]">
       <Container>

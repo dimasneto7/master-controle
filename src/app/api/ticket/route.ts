@@ -43,3 +43,32 @@ export async function PATCH(request: Request) {
     )
   }
 }
+
+export async function POST(request: Request) {
+  const { customerId, name, description } = await request.json()
+
+  if (!customerId || !name || !description) {
+    return NextResponse.json(
+      { error: 'Faild to create a new ticket' },
+      { status: 400 }
+    )
+  }
+
+  try {
+    await prismaClient.ticket.create({
+      data: {
+        name: name,
+        description: description,
+        customerId: customerId,
+        status: 'ABERTO',
+      },
+    })
+
+    return NextResponse.json({ message: 'Chamado registrado com sucesso' })
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'Faild to create a new ticket' },
+      { status: 400 }
+    )
+  }
+}
