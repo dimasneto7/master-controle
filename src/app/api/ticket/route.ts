@@ -45,7 +45,7 @@ export async function PATCH(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const { customerId, name, description } = await request.json()
+  const { customerId, name, description, userId } = await request.json()
 
   if (!customerId || !name || !description) {
     return NextResponse.json(
@@ -60,6 +60,7 @@ export async function POST(request: Request) {
         name: name,
         description: description,
         customerId: customerId,
+        userId: userId,
         status: 'ABERTO',
       },
     })
